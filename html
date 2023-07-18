@@ -14,3 +14,79 @@
 
  <div id="footnotediv">footnote </div>
 <div id="text-container">animated stuff</div>
+
+
+
+**footnote Js
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var p = Popcorn( "#video1" )
+
+
+      .play()
+      .footnote({
+        start: 1,
+        end: 2,
+        text: "This video made exclusively for drumbeat.org",
+        target: "footnotediv"
+      })
+		  .footnote({
+        start: 3,
+        end: 4,
+        text: "76tghu7y6tghyu76yt",
+        target: "footnotediv"
+      })
+      .footnote({
+        start: 5,
+        end: 8,
+        text: "Visit webmademovies.org for more details",
+        target: "footnotediv"
+      });
+    }, false);
+</script>
+
+
+**typistjs
+<script>	var  p = Popcorn ('#video1', {
+				frameAnimation: true
+			});
+
+			p.typist({
+				start: 0,
+				end: 6,
+				target: 'text-container',
+				html: '<p>Type <span style="font-style: italic; font-family: Garamond;">rich text</span> with the <code style="color: darkred;">html</code> parameter.</p>',
+				progress: {
+					from: 0,
+					0.6: 1,
+					timing: 'ease-in-cubic'
+				}
+			});
+
+			p.typist({
+				start: 6,
+				end: 16,
+				target: 'text-container',
+				text: 'Type plain text with the "text" parameter. !@#$%^&*()<>":;./?<~` This is safe here: <' + 'script> alert("You are hacked!"); <' + '/script>',
+				progress: {
+					from: 0,
+					0.8: 1
+				}
+			});
+
+			var div = document.createElement('divvy');
+			div.innerHTML = 'Or you can pass a DOM element to the <code style="color: darkred;">html</code> parameter.';
+
+			p.typist({
+				start: 16,
+				end: 22,
+				target: 'text-container',
+				html: div,
+				progress: {
+					from: 0,
+					0.5: 1,
+					timing: 'ease-in-out-sine'
+				}
+			});
+		
+		</script>
